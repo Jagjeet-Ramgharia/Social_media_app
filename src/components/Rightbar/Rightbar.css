@@ -1,3 +1,18 @@
 .rightbar{
     flex: 3.5;
 }
+.rightbarWrapper{
+    padding: 20px 20px 0 0;
+}
+.bdayContainer{
+    display: flex;
+    align-items: center;
+}
+.bdayImg{
+    margin-right: 10px;
+}
+.adImg{
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 30px;
+}
