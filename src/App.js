@@ -1,9 +1,8 @@
 import React from 'react';
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Profile from './pages/Profile';
-import Register from './pages/Register';
 import './App.css';
+import Profile from './pages/profile/Profile';
+import Login from './pages/login/Login';
 
 function App() {
   return (

@@ -1,8 +1,9 @@
 .sidebar{
     flex: 3;
     height: calc(100vh - 50px);
-    /* background-color: red; */
     overflow-y: scroll;
+    position: sticky;
+    top: 50px;
 }
 ::-webkit-scrollbar{
     width: 5px;
@@ -26,6 +27,9 @@
     display: flex;
     align-items: center;
 }
+.sidebarListItemText{
+    cursor: pointer;
+}
 .sidebarIcon{
     margin-right: 10px;
 }
@@ -36,6 +40,7 @@
     border-radius: 5px;
     font-weight: 500;
     cursor: pointer;
+    background-color: grey;
 }
 .sidebarHr{
     margin: 20px 0;

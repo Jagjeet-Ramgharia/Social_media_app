@@ -1,0 +1,79 @@
+.Login{
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 16px -8px rgba(0,0,0,.68);
+}
+.login_wrapper{
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+}
+.login_left, .login_right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login_logo{
+    font-size: 50px;
+    font-weight: 900;
+    color: #1775ee;
+    margin-bottom: 10px;
+}
+.login_desc{
+    font-size: 24px;
+    font-weight: 400;
+}
+.login_box{
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    padding: 20px;
+}
+.login_input{
+    height: 40px;
+    border-radius: 10px;
+    font-size: 24px;
+    padding-left: 10px;
+    border: 2px solid grey;
+    outline: none;
+}
+.login_btn{
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1775ee;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: .5s all ease-in-out;
+    outline: none;
+}
+.login_btn:hover{
+    background-color: #ede7e3;
+    color: #1775ee;
+}
+.forgot_password{
+    text-align: center;
+    color: #1775ee;
+}
+.loginSignUp_btn{
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #43b72a;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: .5s all ease-in-out;
+    outline: none;
+}
+

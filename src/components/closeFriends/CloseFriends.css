@@ -1,0 +1,11 @@
+.sidebarFriend{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.sidebarFriendImg{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

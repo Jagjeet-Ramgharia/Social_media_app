@@ -1,5 +1,6 @@
 .rightbar{
     flex: 3.5;
+    position: sticky;
 }
 .rightbarWrapper{
     padding: 20px 20px 0 0;
@@ -7,6 +8,7 @@
 .bdayContainer{
     display: flex;
     align-items: center;
+    
 }
 .bdayImg{
     margin-right: 10px;
@@ -14,5 +16,53 @@
 .adImg{
     width: 100%;
     margin: 30px 0;
-    border-radius: 30px;
+    border-radius: 40px;
+}
+.rightbarTitle{
+    margin-bottom: 20px;
+}
+.rightbarFriendList{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 90%;
+    padding: 10px;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,.68);
+}
+
+
+.rightbarTitle{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.rightbarInfo{
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,.68);
+    padding: 10px;
+    width: 90%;
+}
+.rightbarInfoItem{
+    margin-bottom: 10px;
+}
+.userFollowings{
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,.68);
+    padding: 10px;
+    width: 90%;
+}
+.userFollowing{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.rightbarInfoKey{
+    font-weight: 500;
+    margin-right: 10px;
+}
+.userFollowingImg{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
 }
