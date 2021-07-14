@@ -3,15 +3,15 @@ import { Users } from "../../Data";
 import Online from "../online/Online";
 import "./Rightbar.css";
 
-const Rightbar = ({ profile }) => {
+const Rightbar = ({ user }) => {
   const HomeRightbar = () => {
     return (
       <>
         <div className="bdayContainer">
           <img src="/assets/giftbox.png" alt="" className="bdayImg" />
-          <spna className="bdayText">
+          <span className="bdayText">
             <b>Deja_vu</b> and <b>3 other friends</b> have birthday today.
-          </spna>
+          </span>
         </div>
         <img src="/assets/download.jpg" alt="" className="adImg" />
         <h4 className="rightbarTitle">Online Friends</h4>
@@ -30,15 +30,15 @@ const Rightbar = ({ profile }) => {
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">Ludhiana</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
           <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">Ludhiana</span>
+            <span className="rightbarInfoKey">from:</span>
+            <span className="rightbarInfoValue">{user.from}</span>
           </div>
           <div className="rightbarInfoItem">
-            <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">Ludhiana</span>
+            <span className="rightbarInfoKey">Relationship:</span>
+            <span className="rightbarInfoValue">{user.relationship === 1 ? "Single" : user.relationship === 2 ? "In a Relationship" : "-"}</span>
           </div> 
         </div>
         <h4 className="rightbarTitle">Following</h4>
@@ -58,7 +58,7 @@ const Rightbar = ({ profile }) => {
   return (
     <div className="rightbar">
       <div className="rightbarWrapper"></div>
-       {profile ? <ProfileRightbar/> : <HomeRightbar/>}
+       {user ? <ProfileRightbar/> : <HomeRightbar/>}
     </div>
   );
 };

@@ -8,8 +8,8 @@
     box-shadow: 5px 5px 16px -8px rgba(0,0,0,.68);
 }
 .login_wrapper{
-    width: 80vw;
-    height: 80vh;
+    width: 70vw;
+    height: 70vh;
     display: flex;
 }
 .login_left, .login_right{
@@ -39,7 +39,7 @@
     padding: 20px;
 }
 .login_input{
-    height: 40px;
+    height: 30px;
     border-radius: 10px;
     font-size: 24px;
     padding-left: 10px;
@@ -47,7 +47,7 @@
     outline: none;
 }
 .login_btn{
-    height: 40px;
+    height: 30px;
     border-radius: 20px;
     border: none;
     background-color: #1775ee;
@@ -64,9 +64,10 @@
 .forgot_password{
     text-align: center;
     color: #1775ee;
+    cursor: pointer;
 }
 .loginSignUp_btn{
-    height: 40px;
+    height: 30px;
     border-radius: 20px;
     border: none;
     background-color: #43b72a;
