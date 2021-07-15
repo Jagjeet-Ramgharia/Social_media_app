@@ -25,7 +25,7 @@ const Newsfeed = ({ username }) => {
   }, [username, user._id]);
   return (
     <div className="feed">
-      <Share />
+      {(!username || username === user.username) && <Share />}
       {posts.map((val) => {
         return <Post key={val._id} post={val} />;
       })}

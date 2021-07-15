@@ -18,6 +18,11 @@
     flex-direction: column;
     justify-content: center;
 }
+.login_right{
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,.68);
+    border-radius: 20px;
+    background-color: white;
+}
 .login_logo{
     font-size: 50px;
     font-weight: 900;

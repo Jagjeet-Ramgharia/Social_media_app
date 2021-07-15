@@ -52,6 +52,7 @@
 }
 .topbarLink{
     margin-right: 10px;
+    margin-left: 10px;
     font-size: 14px;
     cursor: pointer;
 }
@@ -83,4 +84,19 @@
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+}
+
+@media (max-width:768px) {
+    .topBarContainer{
+        width: 100%;
+    }
+}
+
+@media (max-width:523px) {
+    .topBarContainer{
+        width: 114.7%;
+    }
+    .logo{
+        font-size: 10px;
+    }
 }

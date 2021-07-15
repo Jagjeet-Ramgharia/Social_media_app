@@ -48,7 +48,7 @@ const Login = () => {
               ref={password}
             />
             <button type="submit" className="login_btn">
-              {isFetching ? <CircularProgress color="white" size="20px"/> : "Sign In"}
+              {isFetching ? <CircularProgress size="20px"/> : "Sign In"}
             </button>
             <span className="forgot_password">Forgot Password?</span>
             <button className="loginSignUp_btn">

@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "../../axios";
+// import axios from "../../axios";
+import axios from "axios";
 import "./Register.css";
 
 const Register = () => {
-  const Username = useRef();
+  const username = useRef();
   const email = useRef();
   const password = useRef();
   const confirmPassword = useRef();
@@ -16,7 +17,7 @@ const Register = () => {
       confirmPassword.current.setCustomValidity("Password do not match");
     } else {
       const user = {
-        Username: Username.current.value,
+        username: username.current.value,
         email: email.current.value,
         password: password.current.value,
       };
@@ -38,13 +39,13 @@ const Register = () => {
             Connect with friends and the World around you with Meet Up.
           </span>
         </div>
-        <form className="login_right" onSubmit={handleSubmit}>
-          <div className="login_box" >
+        <div className="login_right" >
+          <form className="login_box" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Username"
               required
-              ref={Username}
+              ref={username}
               className="login_input"
               autoComplete="off"
               minLength="3"
@@ -76,8 +77,8 @@ const Register = () => {
             <button type="submit" className="login_btn">
               Sign Up
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );
