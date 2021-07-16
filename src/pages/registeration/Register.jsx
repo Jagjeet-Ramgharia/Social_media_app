@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
-// import axios from "../../axios";
 import axios from "axios";
 import "./Register.css";
 

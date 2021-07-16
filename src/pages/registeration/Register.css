@@ -82,3 +82,17 @@
     outline: none;
 }
 
+@media(max-width:767px){
+    .login_wrapper{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .login_right{
+        margin-top: 10px;
+    }
+    .login_left{
+        text-align: center;
+    }
+}
+

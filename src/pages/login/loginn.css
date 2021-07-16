@@ -62,10 +62,7 @@
     transition: .5s all ease-in-out;
     outline: none;
 }
-.login_btn:hover{
-    background-color: #ede7e3;
-    color: #1775ee;
-}
+
 .forgot_password{
     text-align: center;
     color: #1775ee;
@@ -81,5 +78,11 @@
     cursor: pointer;
     transition: .5s all ease-in-out;
     outline: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
 

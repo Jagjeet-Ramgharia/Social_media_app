@@ -1,0 +1,44 @@
+.UpdateUserContainer{
+    width: 100vw;
+    height:calc(100vh - 50px);
+    display: flex;
+}
+.updateuser_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(100vh-50px);
+    width: 55vw;
+    /* background-color: grey; */
+}
+.updateuser_left{
+    width: 20vw;
+}
+
+.form_box{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.UpdateuserInput{
+    margin-bottom: 15px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    width: 50%;
+}
+.UpdateUserBtn{
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    width: 30%;
+    cursor: pointer;
+    background-color: #1775ee !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+}

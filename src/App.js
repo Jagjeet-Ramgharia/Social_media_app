@@ -6,6 +6,8 @@ import Login from './pages/login/Login';
 import Register from './pages/registeration/Register';
 import {BrowserRouter as Router, Switch,Route, Redirect} from 'react-router-dom'
 import { AuthContext } from './context/AuthContext';
+import Chat from './pages/chat/Chat';
+import UpdateUser from './pages/updateUser/UpdateUser';
 
 function App() {
   const {user} = useContext(AuthContext)
@@ -22,8 +24,14 @@ function App() {
         <Route path="/register">
           {user ? <Redirect to="/"/>:<Register/>}
         </Route>
+        <Route path="/chat">
+          {!user ? <Redirect to="/"/>:<Chat/>}
+        </Route>
         <Route path="/profile/:username">
           <Profile/>
+        </Route>
+        <Route path="/updateuser">
+          <UpdateUser/>
         </Route>
       </Switch>
     </Router>

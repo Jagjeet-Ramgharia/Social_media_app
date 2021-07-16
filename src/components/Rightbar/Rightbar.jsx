@@ -10,8 +10,8 @@ import { Add, Remove } from "@material-ui/icons";
 const Rightbar = ({ user }) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
-  const { user: CurrentUser,dispatch } = useContext(AuthContext);
-  const [followed,setFollowed] = useState(CurrentUser.following.includes(user?.id))
+  const { user:CurrentUser,dispatch } = useContext(AuthContext);
+  const [followed,setFollowed] = useState([CurrentUser.following.includes(user?.id)])
 
   useEffect(()=>{
     setFollowed(CurrentUser.following.includes(user?.id));
@@ -102,7 +102,7 @@ const Rightbar = ({ user }) => {
               <>
                 <Link
                   to={"/profile/" + val.username}
-                  style={{ textDecoration: "none" }}
+                  style={{ textDecoration: "none", color:"black" }}
                 >
                   <div className="userFollowing">
                     <img
