@@ -1,0 +1,25 @@
+.conversation{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: -15px;
+    padding: 10px;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,.68);
+    cursor: pointer;
+}
+.conversation:hover{
+    background-color: rgb(236, 230, 230);
+    filter: drop-shadow(0 0.1rem .2rem rgba(0, 0, 0, 1));
+}
+.con_img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 10px;
+    filter: drop-shadow(0 0.1rem .2rem rgba(0, 0, 0, 1));
+}
+.con_name{
+    font-weight: bolder;
+}
