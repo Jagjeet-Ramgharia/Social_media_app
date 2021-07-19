@@ -19,12 +19,10 @@ const Post = ({ post }) => {
   useEffect(()=>{
     const fetchUser = async() =>{
         const res = await axios.get(`/users?userId=${post.userId}`);
-        console.log(res.data)
         setUser(res.data)
     }
     fetchUser();
 },[post.userId])
-console.log(post.img)
 
   const likeHandler = () =>{
     try{

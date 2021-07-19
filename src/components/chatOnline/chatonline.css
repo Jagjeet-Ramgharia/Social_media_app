@@ -25,3 +25,6 @@
     top:2px;
     right: 8px;
 }
+.friend_name{
+    cursor: pointer;
+}

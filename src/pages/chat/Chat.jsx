@@ -6,27 +6,45 @@ import Message from "../../components/messages/Message";
 import ChatOnline from "../../components/chatOnline/ChatOnline";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "../../axios";
-import {io} from 'socket.io-client'
+import { io } from "socket.io-client";
 
 const Chat = () => {
   const [conversation, setConversation] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
-  const [newMessage,setNewMessage] = useState('')
+  const [newMessage, setNewMessage] = useState("");
+  const [onlineUsers, setOnlineUsers] = useState([]);
   const { user } = useContext(AuthContext);
-  const [socket,setSocket] = useState(null)
-  const ScrollRef = useRef()
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const ScrollRef = useRef();
+  const socket = useRef();
 
-  useEffect(()=>{
-    setSocket(io('ws://localhost:8900'))
-  },[])
+  useEffect(() => {
+    socket.current = io("ws://localhost:8900");
+    socket.current.on("getMessage", (data) => {
+      setArrivalMessage({
+        senderId: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      });
+    });
+  }, []);
 
+  useEffect(() => {
+    arrivalMessage &&
+      currentChat?.members.includes(arrivalMessage.sender) &&
+      setMessages((prev) => [...prev, arrivalMessage]);
+  }, [arrivalMessage, currentChat]);
 
-  useEffect(()=>{
-    socket?.on("welcome" , message=>{
-      console.log(message)
-    })
-  },[socket])
+  useEffect(() => {
+    socket.current.emit("addUser", user._id);
+    socket.current.on("getUsers", (users) => {
+      setOnlineUsers(
+        user.following.filter((f) => users.some((u) => u.userId === f))
+      );
+    });
+  }, [user]);
+  console.log(user)
 
   // this useeffect will get all conversations
   useEffect(() => {
@@ -40,39 +58,49 @@ const Chat = () => {
     };
     getConversations();
   }, [user._id]);
-  
-  // this useeffect will get all conversations
-  useEffect(()=>{
-    const getMessages = async () =>{
-      try{
-        const res = await axios.get('/messages/'+ currentChat?._id);
-        setMessages(res.data)
-      }catch(err){
-        console.log(err)
-      }
-    }
-    getMessages()
-  },[currentChat])
-  
-  const handleSubmit = async (e) =>{
-    e.preventDefault()
-    const message = {
-      conversationId : currentChat._id,
-      sender : user._id,
-      text : newMessage
-    }
-    try{
-      const res =  await axios.post("/messages", message)
-      setMessages([...messages, res.data])
-      setNewMessage('')
-    }catch(err){
-      console.log(err)
-    }
-  }
 
-  useEffect(()=>{
-    ScrollRef.current?.scrollIntoView({behavior:"smooth"})
-  })
+  // this useeffect will get all conversations
+  useEffect(() => {
+    const getMessages = async () => {
+      try {
+        const res = await axios.get("/messages/" + currentChat?._id);
+        setMessages(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getMessages();
+  }, [currentChat]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const message = {
+      conversationId: currentChat._id,
+      sender: user._id,
+      text: newMessage,
+    };
+
+    const receiverId = currentChat.members.find(
+      (member) => member !== user._id
+    );
+    socket.current.emit("sendMessage", {
+      senderId: user._id,
+      receiverId,
+      text: newMessage,
+    });
+
+    try {
+      const res = await axios.post("/messages", message);
+      setMessages([...messages, res.data]);
+      setNewMessage("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  // scroll down into messages whenever there is a new message
+  useEffect(() => {
+    ScrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  });
   return (
     <>
       <Topbar />
@@ -86,10 +114,10 @@ const Chat = () => {
             />
             {conversation.map((val) => {
               return (
-              <div onClick={() => setCurrentChat(val)}>
-              <Conversation conversation={val} currentUser={user} />
-              </div>
-              )
+                <div onClick={() => setCurrentChat(val)}>
+                  <Conversation conversation={val} currentUser={user} />
+                </div>
+              );
             })}
           </div>
         </div>
@@ -98,13 +126,11 @@ const Chat = () => {
             {currentChat ? (
               <>
                 <div className="chat_box_top">
-
-                {messages.map(val =>(
-                  <div ref={ScrollRef}>
-                  <Message messages = {val} own ={val.sender === user._id} />
-                  </div>
-                ))}
-                  
+                  {messages.map((val) => (
+                    <div ref={ScrollRef}>
+                      <Message messages={val} own={val.sender === user._id} />
+                    </div>
+                  ))}
                 </div>
                 <div className="chat_box_bottom">
                   <input
@@ -112,9 +138,11 @@ const Chat = () => {
                     placeholder="Type a Message"
                     className="chat_type_message"
                     value={newMessage}
-                    onChange={(e)=> setNewMessage(e.target.value)}
+                    onChange={(e) => setNewMessage(e.target.value)}
                   />
-                  <button className="chat_send_btn" onClick={handleSubmit}>Send</button>
+                  <button className="chat_send_btn" onClick={handleSubmit}>
+                    Send
+                  </button>
                 </div>
               </>
             ) : (
@@ -126,7 +154,11 @@ const Chat = () => {
         </div>
         <div className="chat_online">
           <div className="chat_online_wrapper">
-            <ChatOnline />
+            <ChatOnline
+              onlineUsers={onlineUsers}
+              currentUserId={user._id}
+              setCurrentChat={setCurrentChat}
+            />
           </div>
         </div>
       </div>
