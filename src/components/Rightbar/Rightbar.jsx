@@ -13,9 +13,9 @@ const Rightbar = ({ user }) => {
   const { user:CurrentUser,dispatch } = useContext(AuthContext);
   const [followed,setFollowed] = useState([CurrentUser.following.includes(user?.id)])
 
-  useEffect(()=>{
-    setFollowed(CurrentUser.following.includes(user?.id));
-  },[CurrentUser,user])
+  // useEffect(()=>{
+  //   setFollowed(CurrentUser.following.includes(user?.id));
+  // },[CurrentUser,user])
 
   useEffect(() => {
     const getFriends = async () => {
