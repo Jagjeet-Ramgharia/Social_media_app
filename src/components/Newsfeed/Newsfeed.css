@@ -1,4 +1,11 @@
 .feed{
-    flex: 5.5;
+     flex: 5.5;
     padding: 20px;
 }
+
+@media(max-width:768px){
+    .feed{
+        width: 115%;
+    }
+}
+

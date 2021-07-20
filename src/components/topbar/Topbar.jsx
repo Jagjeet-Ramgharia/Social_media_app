@@ -25,7 +25,9 @@ const Topbar = () => {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
+        <Link to="/" style={{textDecoration:"none", color:"white"}}>
           <span className="topbarLink">HomePage</span>
+          </Link>  
           <Link to="/chat" style={{textDecoration:"none", color:"white"}}>
           <span className="topbarLink">Chat</span>
           </Link>

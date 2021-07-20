@@ -1,3 +1,9 @@
 .homeContainer{
     display: flex;
 }
+@media (max-width:768px){
+    .homeContainer{
+        width: 115%;
+        /* margin-left: 50px; */
+    }
+}

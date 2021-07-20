@@ -72,3 +72,18 @@
     width: 100%;
     cursor: default;
 }
+
+@media (max-width:768px){
+    .chat_container{
+        width: 115%;
+    }
+    .chat_menu{
+        display: none;
+    }
+    .chat_online{
+        display: none;
+    }
+    .display{
+        
+    }
+}

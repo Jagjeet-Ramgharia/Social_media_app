@@ -1,0 +1,29 @@
+.footer{
+    height: 30px;
+    width: 100%;
+    background-color: #7b2cbf;
+}
+
+.footer > p{
+    position: absolute;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.footer > p > a{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px){
+    .footer{
+        width: 115%;
+    }
+    .footer > p{
+        position: absolute;
+        text-align: center;
+        left: 30px;
+    }
+}
